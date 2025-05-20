@@ -1,0 +1,225 @@
+﻿<Window x:Class="TreeExplorer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TreeExplorer"
+        mc:Ignorable="d"
+        Title="Tree view explorer" Height="715" Width="800"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+  <Window.Resources>
+    <Style TargetType="{x:Type Control}">
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+    <Style TargetType="{x:Type TextBlock}">
+      <Setter Property="FontSize" Value="14"/>
+    </Style>
+  </Window.Resources>
+  <Grid Margin="0,0,0,11">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" Margin="10">
+      <TextBlock Text="Tree view explorer" 
+                     FontSize="28" 
+                     FontWeight="Bold" 
+                     Margin="0,0,0,10"/>
+    </StackPanel>
+    <TabControl Grid.Row="1" Margin="10">
+      <TabItem Header="Connection">
+        <Grid Margin="10">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          
+          <GroupBox Header="Oracle Connection" Grid.Column="0" Margin="10,43,10,22" FontStyle="Normal" FontWeight="Bold">
+            <StackPanel Margin="10">
+              <ComboBox Name="cboOracleLConnectionProfileFile"
+                  Margin="0,0,0,10"
+                  SelectedIndex="0"
+                  FontStyle="Normal" FontWeight="Bold">
+              </ComboBox>
+              <Button Content="Load Connection" 
+                              Margin="0,0,0,10" 
+                              Padding="10,5"
+                              Background="#FF007ACC"
+                              Foreground="White"
+                              Height="30"
+                              Name="btnLoadOracleConnection"
+                Click="BtnLoadOracleConnection_Click"/>
+              <Label Content="Server:" Name="lblOracleServer" FontStyle="Normal" FontWeight="Bold"/>
+              <TextBox Margin="0,0,0,10" Name="txtOracleServer" FontStyle="Normal" FontWeight="Medium"/>
+              <Label Content="Port:" Name="lblOraclePort" FontStyle="Normal" FontWeight="Bold"/>
+              <TextBox Margin="0,0,0,10" Name="txtOraclePort" Text="1521" FontStyle="Normal" FontWeight="Medium"/>
+              <Label Content="Service Name:" Name="lblOracleServiceName" FontStyle="Normal" FontWeight="Bold"/>
+              <TextBox Margin="0,0,0,10" Name="txtOracleServiceName" FontStyle="Normal" FontWeight="Medium"/>
+              <TextBox Margin="0,0,0,10" Name="txtOracleSpace" Visibility="Hidden"/>
+              <TextBox Margin="0,0,0,10" Name="txtOracleSpace2" Visibility="Hidden"/>
+              <Label Content="Username:" Name="lblOracleUser" FontStyle="Normal" FontWeight="Bold"/>
+              <TextBox Margin="0,0,0,10" Name="txtOracleUser" FontStyle="Normal" FontWeight="Medium"/>
+              <Label Content="Password:" Name="lblOraclePassword" FontStyle="Normal" FontWeight="Bold"/>
+              <PasswordBox Margin="0,0,0,10" Name="pwdOraclePassword"/>
+              <CheckBox Content="Save Credentials" 
+                              Margin="0,0,0,10"
+                              Name="chkSaveOracle"
+                   FontStyle="Normal" FontWeight="Bold" Checked="ChkSaveOracle_Checked"/>
+              <ComboBox Name="cboOracleConnectionProfile" 
+                  Margin="0,0,0,10"
+                  SelectedIndex="0"
+                  FontStyle="Normal" FontWeight="Bold">
+                <ComboBoxItem Content="Profil1"/>
+                <ComboBoxItem Content="Profil2"/>
+                <ComboBoxItem Content="Profil3"/>
+                <ComboBoxItem Content="Profil4"/>
+              </ComboBox>
+
+              <Button Content="Test Connection" 
+                              Margin="0,10,0,0" 
+                              Padding="10,5"
+                              Background="#FF007ACC"
+                              Foreground="White"
+                              Height="30"
+                              Name="btnTestOracle"/>
+            </StackPanel>
+          </GroupBox>
+
+          <GroupBox Header="PostgreSQL Connection" Grid.Column="1" Margin="10,43,10,22" FontStyle="Normal" FontWeight="Bold">
+            <StackPanel Margin="10">
+              <ComboBox Name="cboPostgresConnectionProfileFile"
+                  Margin="0,0,0,10"
+                  SelectedIndex="0"
+                  FontStyle="Normal" FontWeight="Bold" />
+              <Button Content="Load Connection" 
+                 Margin="0,0,0,10" 
+                 Padding="10,5"
+                 Background="#FF007ACC"
+                 Foreground="White"
+                 Height="30"
+                 Name="btnLoadPostgresqlConnection"
+                 Click="BtnLoadPostgresqlConnection_Click"/>
+              <Label Content="Server:" Name="lblPostgresServer"/>
+              <TextBox Margin="0,0,0,10" Name="txtPostgresServer"/>
+              <Label Content="Port:" Name="lblPostgresPort"/>
+              <TextBox Margin="0,0,0,10" Name="txtPostgresPort" Text="5432"/>
+              <Label Content="Database:" Name="lblPostgresDatabase"/>
+              <TextBox Margin="0,0,0,10" Name="txtPostgresDatabase"/>
+              <Label Content="Schema:" Name="lblPostgresSchema"/>
+              <TextBox Margin="0,0,0,10" Name="txtPostgresSchema" Text="public"/>
+              <Label Content="Username:" Name="lblPostgresUser"/>
+              <TextBox Margin="0,0,0,10" Name="txtPostgresUser"/>
+              <Label Content="Password:" Name="lblPostgresPassword"/>
+              <PasswordBox Margin="0,0,0,10" Name="pwdPostgresPassword"/>
+              <CheckBox Content="Save Credentials" Name="chkSavePostgres" Margin="0,0,0,10" Checked="ChkSavePostgres_Checked"/>
+              <ComboBox Name="cboPostgresqlConnectionProfile" 
+                  Margin="0,0,0,10"
+                  SelectedIndex="0"
+                  FontStyle="Normal" FontWeight="Bold">
+                <ComboBoxItem Content="Profil1"/>
+                <ComboBoxItem Content="Profil2"/>
+                <ComboBoxItem Content="Profil3"/>
+                <ComboBoxItem Content="Profil4"/>
+              </ComboBox>
+              <Button Content="Test Connection" 
+                              Margin="0,10,0,0" 
+                              Padding="10,5"
+                              Background="#FF007ACC"
+                              Foreground="White"
+                              Height="30"
+                              Name="btnTestPostgres" 
+                              Click="BtnTestPostgres_Click"/>
+            </StackPanel>
+          </GroupBox>
+        </Grid>
+      </TabItem>
+      <TabItem Header="Tree" Height="20" VerticalAlignment="Top">
+        <Grid Margin="10">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+
+          <GroupBox Header="Tree model" Grid.Column="0" Margin="0,0,5,0">
+            <Grid Margin="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+
+              <StackPanel Grid.Row="0">
+                <Button Content="Load tree" 
+                                    Name="btnLoadOracleTables"
+                                    Margin="0,0,0,10"
+                                    Padding="10,5"
+                                    Background="#FF007ACC"
+                                    Foreground="White"/>
+
+              </StackPanel>
+
+              <ListView Grid.Row="1" 
+                                  Name="treeModel"
+                                  Margin="0,0,0,10">
+              </ListView>
+            </Grid>
+          </GroupBox>
+
+          <GroupBox Header="Tree result" Grid.Column="1" Margin="5,0,0,0">
+            <Grid Margin="10">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+
+              <StackPanel Grid.Row="0">
+                <Button Content="Load Tree" 
+                                    Name="btnLoadResultTree"
+                                    Margin="0,0,0,10"
+                                    Padding="10,5"
+                                    Background="#FF007ACC"
+                                    Foreground="White" 
+                                    Click="BtnLoadResultTree_Click"/>
+              </StackPanel>
+
+              <ListView Grid.Row="1" 
+                                  Name="lstResultTree"
+                                  Margin="0,0,0,10">
+                <ListView.ItemTemplate>
+                  <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                      <CheckBox IsChecked="{Binding IsSelected}" VerticalAlignment="Center"/>
+                      <TextBlock Text="{Binding TableName}" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                      <TextBlock Text="{Binding RowCount}" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                    </StackPanel>
+                  </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                  <Style TargetType="ListViewItem">
+                    <Setter Property="Background" Value="{Binding Background}"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                  </Style>
+                </ListView.ItemContainerStyle>
+              </ListView>
+            </Grid>
+          </GroupBox>
+        </Grid>
+      </TabItem>
+      <TabItem Header="Logs">
+        <Grid Margin="10">
+          <TextBox Name="txtLogs" 
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         AcceptsReturn="True"
+                         FontFamily="Consolas"/>
+        </Grid>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</Window>
