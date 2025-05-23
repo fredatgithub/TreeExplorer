@@ -35,8 +35,7 @@ namespace TreeExplorer
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            // Initialisation de l'arborescence exemple
-            InitializeSampleTree();
+            // nothing for now
         }
 
         private void InitializeSampleTree()
@@ -86,12 +85,6 @@ namespace TreeExplorer
         private void BtnTestPostgres_Click(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Handle button click event here
-
         }
 
         private void TreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
