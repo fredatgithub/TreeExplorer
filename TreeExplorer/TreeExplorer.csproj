@@ -145,6 +145,7 @@
     <Compile Include="Models\DbCredentials.cs" />
     <Compile Include="Models\Node.cs" />
     <Compile Include="Models\NodeInformation.cs" />
+    <Compile Include="Models\TreeNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
