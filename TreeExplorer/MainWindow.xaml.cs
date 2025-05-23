@@ -177,10 +177,7 @@ namespace TreeExplorer
 
     }
 
-    private void BtnLoadResultTree_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
+    
 
     private void BtnLoadPostgresqlConnection_Click(object sender, RoutedEventArgs e)
     {
@@ -215,6 +212,16 @@ namespace TreeExplorer
     private void ChkSavePostgres_Checked(object sender, RoutedEventArgs e)
     {
 
+    }
+
+    private void BtnLoadResultTree_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+
+    private void BtnLoadModelTree_Click(object sender, RoutedEventArgs e)
+    {
+      MessageBox.Show("Bouton cliqué !");
     }
   }
 }

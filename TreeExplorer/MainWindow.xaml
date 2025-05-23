@@ -135,7 +135,7 @@
           </GroupBox>
         </Grid>
       </TabItem>
-      <TabItem Header="Tree" Height="20" VerticalAlignment="Top">
+      <TabItem Header="Tree">
         <Grid Margin="10">
           <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -153,7 +153,7 @@
               </Grid.RowDefinitions>
 
               <StackPanel Grid.Row="0">
-                <Button Content="Load tree" 
+                <Button Content="Load tree" Click="BtnLoadModelTree_Click"
                                     Name="btnLoadOracleTables"
                                     Margin="0,0,0,10"
                                     Padding="10,5"
