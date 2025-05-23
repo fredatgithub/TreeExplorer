@@ -35,7 +35,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
           </Grid.ColumnDefinitions>
-          
+
           <GroupBox Header="Oracle Connection" Grid.Column="0" Margin="10,43,10,22" FontStyle="Normal" FontWeight="Bold">
             <StackPanel Margin="10">
               <ComboBox Name="cboOracleLConnectionProfileFile"
@@ -163,27 +163,19 @@
 
               <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="5"/>
-                    <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="*"/>
+                  <ColumnDefinition Width="5"/>
+                  <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                
-                <ListView Grid.Column="0"
-                              Name="treeModel"
-                              Margin="0,0,0,10">
-                </ListView>
-                
-                <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" Background="LightGray"/>
-                
-                <TreeView Grid.Column="2" 
+                <TreeView 
                          Name="treeView"
-                         Margin="0,0,0,10">
-                    <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                            <TextBlock Text="{Binding Name}"/>
-                        </HierarchicalDataTemplate>
-                    </TreeView.ItemTemplate>
+                         Margin="0,0,0,10" Grid.ColumnSpan="3">
+                  <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                      <TextBlock Text="{Binding Name}"/>
+                    </HierarchicalDataTemplate>
+                  </TreeView.ItemTemplate>
                 </TreeView>
               </Grid>
             </Grid>
