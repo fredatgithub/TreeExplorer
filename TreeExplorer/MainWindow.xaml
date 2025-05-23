@@ -154,7 +154,7 @@
 
               <StackPanel Grid.Row="0">
                 <Button Content="Load tree" Click="BtnLoadModelTree_Click"
-                                    Name="btnLoadOracleTables"
+                                    Name="btnLoadModelTree"
                                     Margin="0,0,0,10"
                                     Padding="10,5"
                                     Background="#FF007ACC"
